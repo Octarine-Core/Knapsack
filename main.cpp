@@ -1,5 +1,6 @@
 #include <iostream>
-#include "main.h"
+#include <chrono>
+
 int n;
 int* w; // pesos
 int* v; //valores
@@ -9,9 +10,15 @@ int totalWeight = 0; //peso total
 int* bestData; // pointer para melhor
 int bestR;
 
+void checkVW(int* indexCombination, int& r);
+void combinationUtil(int arr[], int data[],
+                     int start, int end,
+                     int index, int r);
+
+
 void combine(int* arr, int n, int r)
 {
-    int data[r];
+    int* data = new int[r];
     combinationUtil(arr, data, 0, n-1, 0, r);
 }
 
@@ -71,6 +78,8 @@ int main(){
 
     //start timer
 
+    auto start = std::chrono::steady_clock::now();
+
     int* arr = new int[n]; // array de indices
     for (int j = 0; j < n; ++j) {arr[j] = j;}
 
@@ -84,6 +93,12 @@ int main(){
     };
 
     //end timer
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+
+    std::cout << std::endl << "Took " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << std::endl;
+
+
 
 }
 
