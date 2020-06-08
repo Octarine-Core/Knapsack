@@ -1,7 +1,5 @@
 #include <iostream>
 #include "main.h"
-#include <chrono>
-
 int n;
 int* w; // pesos
 int* v; //valores
@@ -73,8 +71,6 @@ int main(){
 
     //start timer
 
-    auto start = std::chrono::steady_clock::now();
-
     int* arr = new int[n]; // array de indices
     for (int j = 0; j < n; ++j) {arr[j] = j;}
 
@@ -88,12 +84,6 @@ int main(){
     };
 
     //end timer
-    auto end = std::chrono::steady_clock::now();
-    auto diff = end - start;
-
-    std::cout << std::endl << "Took " << std::chrono::duration <double, std::milli> (diff).count() << " ms" << std::endl;
-
-
 
 }
 
