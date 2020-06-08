@@ -1,8 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
-
 void generateKnapsack(int n);
-
 int main() {
     int n;
     std::cin >> n;
